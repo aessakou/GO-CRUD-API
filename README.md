@@ -63,12 +63,12 @@ Or use the `curl` tool to test the API endpoints.
 You can also use query parameters by replacing `c.Params()` with `c.Query()`, then test with: `curl -X DELETE http://localhost:5000/api/todos?id=1`. See [Fiber Docs](https://docs.gofiber.io/api/ctx/#query).
 
 ## Technologies & Tools Used
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg" width="40" height="40"/> [Go Documentation](https://go.dev/doc/)
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/go/go-original.svg" width="50" height="50"/> [Go Documentation](https://go.dev/doc/)
 
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/fiber/fiber-original.svg" width="40" height="40"/> [Fiber Framework](https://docs.gofiber.io/)
+<img src="https://docs.gofiber.io/img/logo-dark.svg" width="50" height="50"/> [Fiber Framework](https://docs.gofiber.io/)
 
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/golang/golang-original.svg" width="40" height="40"/> [GORM Documentation](https://gorm.io/docs/)
+<img src="https://gorm.io/gorm.svg" width="50" height="50"/> [GORM Documentation](https://gorm.io/docs/)
 
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" width="40" height="40"/> [PostgreSQL Documentation](https://www.postgresql.org/docs/)
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-original.svg" width="50" height="50"/> [PostgreSQL Documentation](https://www.postgresql.org/docs/)
 
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" width="40" height="40"/> [Postman Documentation](https://learning.postman.com/)
+<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postman/postman-original.svg" width="50" height="50"/> [Postman Documentation](https://learning.postman.com/)
