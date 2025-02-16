@@ -1,0 +1,12 @@
+.env
+.env.dev
+.env.dep
+
+tmp/
+
+note
+
+*.log
+*.lua
+
+go.sum
