@@ -49,3 +49,14 @@ Or use the `curl` tool to test the API endpoints.
 1. **GET (Retrieve Data):**
    ```bash
    curl -X GET http://localhost:5000/api/todos
+2. **POST (Create Data):**
+   ```bash
+   curl -X POST http://localhost:5000/api/todos -H "Content-Type: application/json" -d '{"body": "New Task"}'
+3. **PATCH (Update Data):**
+   ```bash
+   curl -X PATCH http://localhost:5000/api/todos/1 -H "Content-Type: application/json" -d '{"completed": true}'
+5. **DELETE (Delete Data):**
+   ```bash
+   curl -X DELETE http://localhost:5000/api/todos/1
+
+You can also use query parameters by replacing `c.Params()` with `c.Query()`, then test with: `curl -X DELETE http://localhost:5000/api/todos?id=1` see [Fiber Docs](https://docs.gofiber.io/api/ctx/#query).
