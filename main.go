@@ -25,22 +25,22 @@ func main() {
 		log.Fatal("Failed to load env file")
 	}
 
+	PORT := os.Getenv("PORT")
+
 	dbhost := os.Getenv("DBHOST")
 	dbuser := os.Getenv("DBUSER")
 	dbuserpw := os.Getenv("DBUSERPW")
 	dbname := os.Getenv("DBNAME")
 	dbport := os.Getenv("DBPORT")
 
-	PORT := os.Getenv("PORT")
-
 	dsn := "host=" + dbhost + " user=" + dbuser + " password=" + dbuserpw + " dbname=" + dbname + " port=" + dbport + " sslmode=disable"
 	db, erro := gorm.Open(postgres.Open(dsn), &gorm.Config{})
 	if erro != nil {
 		log.Fatal("Failed to connect to database!")
 	}
-	fmt.Println("The psql database connected successfully")
+	fmt.Println("The PostgreSQL database connected successfully.")
 	db.AutoMigrate(&TODO{})
-	fmt.Println("TODO is magrated in psql database")
+	fmt.Println("TODO has been migrated to the PostgreSQL database.")
 	DB = db
 
 	app := fiber.New()
@@ -54,7 +54,7 @@ func main() {
 		if err := sqlDB.Close(); err != nil {
 			log.Fatal("Failed to close database connection:", err)
 		}
-		fmt.Println("Database connection closed successfully.")
+		fmt.Println("The database connection was closed successfully.")
 	}()
 
 	// app.Use(logger.New())
@@ -91,7 +91,7 @@ func create_todo(c *fiber.Ctx) error {
 	}
 
 	if todo.Body == "" {
-		return c.Status(400).JSON(fiber.Map{"error": "The Body field is required!"})
+		return c.Status(400).JSON(fiber.Map{"error": "The Body field required!"})
 	}
 
 	if err := DB.Create(&todo).Error; err != nil {
@@ -109,7 +109,7 @@ func update_todo(c *fiber.Ctx) error {
 	if err != nil {
 		return err
 	}
-	return c.Status(200).JSON(fiber.Map{"msg": "TODO has been updated successfully"})
+	return c.Status(200).JSON(fiber.Map{"msg": "TODO has been successfully updated"})
 }
 
 func delete_todo(c *fiber.Ctx) error {
@@ -118,5 +118,5 @@ func delete_todo(c *fiber.Ctx) error {
 	if err := DB.Where("id = ?", id).Delete(&TODO{}).Error; err != nil {
 		return c.Status(404).JSON(fiber.Map{"error": err})
 	}
-	return c.Status(200).JSON(fiber.Map{"msg": "TODO has deleted successfully!"})
+	return c.Status(200).JSON(fiber.Map{"msg": "TODO has been successfully deleted!"})
 }
